@@ -1,0 +1,56 @@
+.widget {
+  padding: 20px;
+}
+.statistical_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.box {
+  padding: 24px;
+  background: var(--light);
+}
+.box_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.box_head_title {
+  font-weight: 600;
+}
+.box_head_showall {
+  color: #009cff;
+}
+
+.box_item {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid black;
+}
+.box_item_avatar {
+  width: 42px;
+  height: 42px;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+.box_item_content {
+  width: 100%;
+}
+.box_item_content_title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 9px;
+}
+.box_item_content_title_name {
+  font-weight: 600;
+}
+.box_item_content_title_time {
+  color: gray;
+}
+.box_item_content_text {
+  color: gray;
+}
+/* calender  */
+

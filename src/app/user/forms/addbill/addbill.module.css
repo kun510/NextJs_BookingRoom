@@ -1,0 +1,39 @@
+.container {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5px;
+}
+.form {
+  width: 50%;
+  padding: 24px;
+  background-color: var(--light);
+  display: flex;
+  flex-direction: column;
+}
+.form_title {
+  font-weight: 600;
+  padding: 10px 0;
+}
+.form_label {
+  padding: 10px 0;
+  color: gray;
+}
+.form_ip {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+.btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  width: 50px;
+  color: white;
+  background-color: #009cff;
+  border-radius: 5px;
+}
+.form_select {
+  color: gray;
+}

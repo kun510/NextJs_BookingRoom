@@ -1,1 +1,1 @@
-# NextJs_BookingRoom
+# hotel-manager

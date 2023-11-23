@@ -1,0 +1,88 @@
+.dasboard {
+    padding: 20px;
+}
+
+.statistical_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.box {
+    padding: 24px;
+    background: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.box_img {
+    width: 50px;
+    height: 50px;
+}
+
+.box_title {
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.box_parameter {
+    font-weight: 600;
+}
+
+
+/* table */
+
+.listroom {
+    margin-top: 20px;
+    background-color: var(--light);
+    padding: 24px;
+}
+
+.listroom_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.listroom_table th,
+.listroom_table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.listroom_table img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.btn_add {
+    padding: 10px 20px;
+    background-color: #c6d318;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn_empty {
+    padding: 10px 20px;
+    background-color: #009cff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.listroom_title_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.listroom_title {
+    font-weight: 600;
+}
+
+.listroom_showall {
+    color: #009cff;
+}

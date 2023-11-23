@@ -1,0 +1,77 @@
+.container {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(254, 254, 254);
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    justify-content: space-around;
+}
+
+.form {
+    width: 23%;
+    padding: 24px;
+    background-color: var(--light);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form_title1 {
+    color: #009cff;
+    font-weight: 600;
+    padding: 10px 0;
+    font-size: calc(1.3rem + .6vw);
+}
+
+.form_title {
+    font-weight: 600;
+    padding: 10px 0;
+    font-size: calc(1.3rem + .6vw);
+}
+
+.form_label {
+    padding: 10px 0;
+    color: gray;
+}
+
+.form_ip {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.btn {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 10px 20px;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    color: white;
+    line-height: 30px;
+    background-color: #009cff;
+    border-radius: 5px;
+}
+
+.Forgot {
+    margin-top: 20px;
+    margin-left: auto;
+}
+
+.NextLogin {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.SignIn {
+    color: #009cff;
+}

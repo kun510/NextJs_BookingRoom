@@ -1,0 +1,7 @@
+.children {
+  width: calc(100% - 250px);
+  height: 100%;
+  background-color: white;
+  margin-left: 250px;
+  padding-top: 64px;
+}

@@ -1,0 +1,89 @@
+.container {
+    padding: 20px;
+}
+
+.container_main {
+    background-color: var(--light);
+    padding: 20px;
+}
+
+.listroom {
+    margin-top: 20px;
+    background-color: var(--light);
+    padding: 24px;
+}
+
+.listroom_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.listroom_table th,
+.listroom_table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.listroom_table img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.btn_add {
+    padding: 10px 20px;
+    background-color: #c6d318;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn_empty {
+    padding: 10px 20px;
+    background-color: #009cff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.listroom_title_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.listroom_title {
+    font-weight: 600;
+}
+
+.listroom_showall {
+    color: #009cff;
+}
+
+.btnnotok {
+    padding: 10px 20px;
+    margin-right: 10px;
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+    border: none;
+}
+
+.btnok {
+    padding: 10px 20px;
+    margin-right: 10px;
+    color: white;
+    background-color: #c6d318;
+    border-radius: 5px;
+    border: none;
+}
+
+.btntype {
+    padding: 10px 20px;
+    margin-right: 10px;
+    color: white;
+    background-color: #c6d318;
+    border-radius: 5px;
+    border: none;
+}
