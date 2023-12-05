@@ -8,7 +8,9 @@ export default function MenuComponent() {
   const [openForm, setOpenForm] = useState(false);
   const [openTable, setOpenTable] = useState(false);
   const [userData, setUserData] = useState<InterfaceUser[]>([]);
-  const userId = localStorage.getItem('userId');
+ // const userId = localStorage.getItem('userId');
+  const userId = typeof window !== "undefined" ? localStorage.getItem("userId") : null;
+
   useEffect(() => {
     const apiUrl = `http://localhost:8080/user/getCurrent?UserId=${userId}`;
   

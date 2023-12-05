@@ -7,11 +7,13 @@ import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 import dayjs from "dayjs";
 import { Notification } from "@/type/type";
+import { Evaluation } from "@/type/type";
 import moment from 'moment';
 
 export default function page() {
    const currentDate = new Date(); 
    const [notifications, setNotifications] = useState<Notification[]>([]);
+   const [review, setReview] = useState<Evaluation[]>([]);
    const hostId = localStorage.getItem("userId");
    useEffect(() => {
     const fetchData = async () => {
@@ -22,12 +24,16 @@ export default function page() {
         }
 
         const response = await fetch(`http://localhost:8080/user/getNotificationReceiver?idUserReceiver=${hostId}`);
-        if (!response.ok) {
+        const responseReview = await fetch(`http://localhost:8080/user/getReviewHost?hostId=${hostId}`);
+      
+        if (!response.ok && !responseReview.ok) {
           throw new Error("Network response was not ok");
         }
 
         const data = await response.json();
+        const dataReview = await responseReview.json();
         setNotifications(data);
+        setReview(dataReview);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -90,22 +96,24 @@ export default function page() {
             <div className={styles.box_head_title}>Review Room</div>
             <div className={styles.box_head_showall}>Show All</div>
           </div>
+          {review.map((reviews, index) => (
           <div className={styles.box_item}>
-            <img className={styles.box_item_avatar} src="/avatar.png" alt="" />
+            <img className={styles.box_item_avatar} src={reviews.user.img} alt="" />
             <div className={styles.box_item_content}>
               <div className={styles.box_item_content_title}>
                 <div className={styles.box_item_content_title_name}>
-                  Jhon Doe
+                {reviews.user.name}
                 </div>
                 <div className={styles.box_item_content_title_time}>
-                  Dương Thưởng
+                {reviews.numberOfStars}
                 </div>
               </div>
               <div className={styles.box_item_content_text}>
-                Phòng đẹp, yên tĩnh, sạch sẽ, thoáng mát,...
+              {reviews.evaluate}
               </div>
             </div>
           </div>
+          ))}
         </div>
       </div>
     </div>

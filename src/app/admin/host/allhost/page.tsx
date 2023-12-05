@@ -30,7 +30,6 @@ export default function page() {
               <th>Phone</th>
               <th>Email</th>
               <th>Avt</th>
-              <th>Chi Tiết</th>
             </tr>
           </thead>
           <tbody>
@@ -41,9 +40,7 @@ export default function page() {
                 <td>{user.phone}</td>
                 <td>{user.email}</td>
                 <td><img src={user.img.toString()} alt="Avatar" /></td>
-                <td>
-                  <button className={styles.btntype}>Xem</button>
-                </td>
+              
               </tr>
             ))}
           </tbody>

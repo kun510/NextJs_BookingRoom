@@ -9,10 +9,11 @@ export default function HeaderComponent() {
   const [openMess, setOpenMess] = useState(false);
   const [openProfile, setopenProfile] = useState(false);
   const [userData, setUserData] = useState<InterfaceUser[]>([]);
-  const userId = localStorage.getItem('userId');
+ // const userId = localStorage.getItem('userId');
+  const userId = typeof window !== "undefined" ? localStorage.getItem("userId") : null;
   const handleLogout = () => {
     localStorage.removeItem('userId');
-    router.push('../account/login');;
+    router.push('/');;
   };
 
   useEffect(() => {

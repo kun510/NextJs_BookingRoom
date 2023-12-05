@@ -281,4 +281,77 @@ export type  Notification = {
       role: string;
     };
   };
+};
+export type  Evaluation = {
+  id: number;
+  evaluate: string;
+  numberOfStars: number;
+  user: {
+    id: number;
+    phone: string;
+    password: string;
+    address: string;
+    email: string;
+    img: string;
+    name: string;
+    confirmation_status: string | null;
+    token_device: string;
+    role: {
+      id: number;
+      role: string;
+    };
+  };
+  room: {
+    id: number;
+    description: string;
+    img: string;
+    numberOfStars: number;
+    numberRoom: number;
+    status: string;
+    price: number;
+    people: string;
+    type: string;
+    user: {
+      id: number;
+      phone: string;
+      password: string;
+      address: string;
+      email: string;
+      img: string;
+      name: string;
+      confirmation_status: string;
+      token_device: string;
+      role: {
+        id: number;
+        role: string;
+      };
+    };
+    boardingHostel: {
+      id: number;
+      address: string;
+      area: string;
+      img: string;
+      status: string;
+      numberRoom: number;
+      numberOfStars: number;
+      user: {
+        id: number;
+        phone: string;
+        password: string;
+        address: string;
+        email: string;
+        img: string;
+        name: string;
+        confirmation_status: string;
+        token_device: string;
+        role: {
+          id: number;
+          role: string;
+        };
+      };
+    };
+    waterBill: number;
+    electricBill: number;
+  };
+  date: string;
 }

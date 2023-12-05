@@ -25,9 +25,7 @@ const RoomComponent: React.FC<RoomComponentProps> = ({ room }) => (
       <img src={room.img} alt={`Room ${room.id}`} />
     </td>
     <td>{room.user.name}</td>
-    <td>
-      <button className={styles.btntype}>Xem</button>
-    </td>
+  
   </tr>
 );
 
@@ -63,7 +61,6 @@ export default function page() {
               <th>Địa Chỉ</th>
               <th>Img</th>
               <th>Name Host</th>
-              <th>Chi Tiết</th>
             </tr>
           </thead>
           <tbody>

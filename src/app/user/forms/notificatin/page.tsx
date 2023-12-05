@@ -18,10 +18,14 @@ export default function NotificationPage() {
   const [tokens, setTokens] = useState([]);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  //const hostIdString  = localStorage.getItem("userId");
+  const hostIdString = typeof window !== "undefined" ? localStorage.getItem("userId") : null;
+  const hostId = parseInt(hostIdString ?? "0", 10);
+ 
   useEffect(() => {
     const fetchTokens = async () => {
       try {
-        const response = await fetch("http://localhost:8080/user/gettoken");
+        const response = await fetch(`http://localhost:8080/user/gettoken?hostId=${hostId}`);
         if (response.ok) {
           const data = await response.json();
           setTokens(data);
@@ -34,7 +38,7 @@ export default function NotificationPage() {
     };
 
     fetchTokens();
-  }, []); 
+  }, [hostId]); 
 
   const handleInputChange = (e:any) => {
     const { id, value } = e.target;

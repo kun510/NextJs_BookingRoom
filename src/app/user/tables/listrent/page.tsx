@@ -6,8 +6,45 @@ import { RentData } from '@/type/type';
 export default function page() {
   const [rentData, setRentData] = useState<RentData[] | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const hostId = localStorage.getItem("userId");
-
+ // const hostId = localStorage.getItem("userId");
+  const hostId = typeof window !== "undefined" ? localStorage.getItem("userId") : null;
+  const handleConfirm = async (rentId: number, roomId: number) => {
+    try {
+      const response = await fetch(`http://localhost:8080/host/addUserInRoomMobile?rentId=${rentId}&roomId=${roomId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      window.location.reload()
+    } catch (error) {
+      setError(`Error confirming: ${error}`);
+    }
+  };
+  
+  const handleReject = async (rentId: number, roomId: number) => {
+    try {
+      const response = await fetch(`http://localhost:8080/host/cancelUserInRoomMobile?rentId=${rentId}&roomId=${roomId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      window.location.reload()
+    } catch (error) {
+      setError(`Error rejecting: ${error}`);
+    }
+  };
+ 
+ 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -54,8 +91,8 @@ export default function page() {
                   </td>
                   <td>{room.user.phone}</td>
                   <td>
-                    <button className={styles.btnok}>Xác Nhận</button>
-                    <button className={styles.btnnotok}>Từ Chối</button>
+                  <button className={styles.btnok} onClick={() => handleConfirm(room.id, room.room.id)}>Xác Nhận</button>
+                        <button className={styles.btnnotok} onClick={() => handleReject(room.id, room.room.id)}>Từ Chối</button>
                   </td>
                 </tr>
               ))}

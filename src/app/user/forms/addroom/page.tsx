@@ -15,9 +15,12 @@ export default function page() {
     const [imageFile, setimageFile] = useState<File | null>(null);
     console.log(imageFile)
     let errorMessage: string;
-    const userId = localStorage.getItem("userId");
-    const boardingId = localStorage.getItem("BoardingId");
-
+   // const userId = localStorage.getItem("userId");
+   // const boardingId = localStorage.getItem("BoardingId");
+    const userId = typeof window !== "undefined" ? localStorage.getItem("userId") : null;
+    const boardingId = typeof window !== "undefined" ? localStorage.getItem("BoardingId") : null;
+    const typeRoom = ["Hostel", "Apartment", "Motel"];
+    const [selectedtype, setSelectedtype] = useState("");
   const handleSubmit = async () => {
     const formData = new FormData();
     formData.set("description", description);
@@ -47,7 +50,7 @@ export default function page() {
         router.push('/user/tables/listroom');
       } else {
         console.error("Failed to add room:", response.statusText);
-        alert(`Failed to add room. Error: ${errorMessage}`);
+        alert(`Failed to add room. Error: Phòng chưa được duyệt`);
       }
     } catch (error) {
       if (error instanceof Error) {
@@ -86,7 +89,9 @@ export default function page() {
           value={numberRoom}
           onChange={(e) => {
             const value = parseInt(e.target.value, 10);
-            setnumberRoom(value);
+           // setnumberRoom(value);
+            const minValue = 1;
+            setnumberRoom(Math.max(value, minValue));
           }}
         />
         <label className={styles.form_label} htmlFor="ElectricBill">
@@ -99,8 +104,9 @@ export default function page() {
           placeholder="3000/1 chữ"
           value={ElectricBill}
           onChange={(e) => {
-            const value = parseInt(e.target.value, 10);
-            setElectricBill(value);
+            const value = parseInt(e.target.value, 10);;
+            const minValue = 1;
+            setElectricBill(Math.max(value, minValue));
           }}
         />
         <label className={styles.form_label} htmlFor="WaterBill">
@@ -113,8 +119,9 @@ export default function page() {
           placeholder="50.000/1 người"
           value={WaterBill}
           onChange={(e) => {
-            const value = parseInt(e.target.value, 10);
-            setWaterBill(value);
+            const value = parseInt(e.target.value, 10);;
+            const minValue = 1;
+            setWaterBill(Math.max(value, minValue));
           }}
         />
         <label className={styles.form_label} htmlFor="price">
@@ -127,8 +134,9 @@ export default function page() {
           placeholder="Hôm nay mất điện"
           value={price}
           onChange={(e) => {
-            const value = parseInt(e.target.value, 10);
-            setprice(value);
+            const value = parseInt(e.target.value, 10);;
+            const minValue = 1;
+            setprice(Math.max(value, minValue));
           }}
         />
         <label className={styles.form_label} htmlFor="people">
@@ -142,20 +150,26 @@ export default function page() {
           value={people}
           onChange={(e) => {
             const value = parseInt(e.target.value, 10);
-            setpeople(value);
+            const minValue = 1;
+            setpeople(Math.max(value, minValue));
           }}
+          
         />
         <label className={styles.form_label} htmlFor="type">
           Loại Phòng
         </label>
-        <input
+        <select
           className={styles.form_ip}
-          type="text"
-          id="roomType"
-          placeholder="Hôm nay mất điện"
-          value={type}
-          onChange={(e)=>{settype(e.target.value)}}
-        />
+          value={selectedtype}
+          onChange={(e) => setSelectedtype(e.target.value)}
+        >
+          <option value="" disabled>Chọn loại phòng</option>
+          {typeRoom.map((typeRoom) => (
+            <option key={typeRoom} value={typeRoom}>
+              {typeRoom}
+            </option>
+          ))}
+        </select>
         <label className={styles.form_label} htmlFor="imageFile">
           Img
         </label>
